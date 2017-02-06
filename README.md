@@ -22,7 +22,9 @@ playbook автоматически проверяет наличие ssh клю
 Список IP для вновь созданных droplets попадает в ansible-docker/newhosts
 
 ### Установка docker в droplets
+
 ansible-docker/hosts
+
 [mydockerhosts]
 
 [manager]
@@ -41,8 +43,11 @@ ansible-docker/hosts
 
 ### Для PostgreSQL используется image orchardup/postgresql
 Переменные для создания начальных параметров PostgreSQL хранятся в ansible-docker/phppgadmin/pgsql-variables.env
+
 POSTGRESQL_USER=test
+
 POSTGRESQL_PASS=oe9jaacZLb33R9pN
+
 POSTGRESQL_DB=test
 
 
@@ -51,13 +56,23 @@ POSTGRESQL_DB=test
 Apache и Postgres будут запущены со следующими переменными.
 
 ENV APACHE_RUN_USER www-data
+
 ENV APACHE_RUN_GROUP www-data
+
 ENV APACHE_LOG_DIR /var/log/apache2
+
 ENV APACHE_PID_FILE /var/run/apache2.pid
+
 ENV APACHE_RUN_DIR /var/run/apache2
+
 ENV APACHE_LOCK_DIR /var/lock/apache2
+
 ENV APACHE_SERVERADMIN admin@localhost
+
 ENV APACHE_SERVERNAME localhost
+
 ENV POSTGRES_DEFAULTDB test
+
 ENV POSTGRES_HOST postgresql
+
 ENV POSTGRES_PORT 5432
