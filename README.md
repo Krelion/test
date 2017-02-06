@@ -23,7 +23,8 @@ playbook автоматически проверяет наличие ssh клю
 Используя API DigitalOcean добавляет эти ключи в аккаунт.
 Создаёт машины по списку с заданными параметрами, для дальнейшей авторизации прописывается ssh ключ
 Для запуска:
-	$ cd ansible-do-api && ansible-playbook digitalocean.yml
+
+$ cd ansible-do-api && ansible-playbook digitalocean.yml
 
 Список IP для вновь созданных droplets попадает в ansible-docker/newhosts
 
