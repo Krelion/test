@@ -9,8 +9,8 @@ ansible-do-api/digitalocean.yml
 
     droplets:
     - manager1
-/#    - worker1
-/#    - worker2
+    #- worker1
+    #- worker2
 
 Указываем имена создаваемых машин, в нашем случае достаточно одной. 
 playbook автоматически проверяет наличие ssh ключей и в случае их отсутствия генерирует новые. 
