@@ -30,25 +30,20 @@ $ cd ansible-do-api && ansible-playbook digitalocean.yml
 
 ### Установка docker в droplets
 
-ansible-docker/hosts
+Вписываем IP хостов в нужные разделы в зависимости от роли, в нашем случае будет достаточно добавить IP в раздел 
 
 [mydockerhosts]
 
-[manager]
+файл ansible-docker/hosts
 
-[workers]
-
-вписываем IP хостов в нужные разделы в зависимости от роли, в нашем случае будет достаточно добавить IP в раздел 
-
-[mydockerhosts]
+Запускаем установку docker и docker-compose на все droplets (если будет использоваться swarm, то можно docker-compose ставить только на manager ноду)
 
   $ cd ansible-docker && ansible-playbook 1-installdocker.yml
 
-происходит установка docker и docker-compose на все droplets (если будет использоваться swarm, то можно docker-compose ставить только на manager ноду)
+Автоматически распаковывается архив ansible-docker/phppgadmin.tar.gz с конфигурацией для docker-compose на ноду и выполняются команды по сборке и запуску контейнеров уже средствами docker-compose
 
   $ ansible-playbook 2-phppg+pgsql.yml
 
-Распаковывается архив ansible-docker/phppgadmin.tar.gz с конфигурацией для docker-compose на ноду и выполняются команды по сборке и запуску контейнеров уже средствами docker-compose
 
 ### Для PostgreSQL используется image orchardup/postgresql с нужными нам параметрами
 
