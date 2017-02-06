@@ -58,9 +58,9 @@ POSTGRESQL_DB=test
 
 
 
-### Apache и Postgres переменные окружения
+### Apache и phppgadmin переменные окружения
 
-Apache и Postgres будут запущены со следующими переменными.
+Apache и phppgadmin будут запущены со следующими переменными.
 
 ENV APACHE_RUN_USER www-data
 
