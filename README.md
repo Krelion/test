@@ -89,6 +89,23 @@ ENV POSTGRES_PORT 5432
 
 ### Дополнительные playbooks для массового развертывания swarm ansible-docker/additional/
 
-Для создания ноды с менеджером используется managerswarm.yml
+Переносим файлы из ansible-docker/additional/ в ansible-docker
 
-Для подключения нод с воркерами используем workertoswarm.yml
+Для создания ноды с менеджером
+
+$ ansible-playbook -vv managerswarm.yml
+
+Для подключения нод с воркерами
+
+$ ansible-playbook workertoswarm.yml
+
+Предварительно нужно прописать token и адрес менеджера, полученные после завершения работы первой команды, в переменные в файле 
+
+workertoswarm.yml
+
+    hosts:
+      - workers
+    vars:
+      ansible_python_interpreter: "/usr/bin/python3"
+      token: "SWMTKN-1-44z5u2rjv6kd5b8dyan1copb702ntdwvm13jbslesmtchp6y41-cmrv2dzhunckqax0mueet2sz4"
+      manageraddres: "128.199.34.37:2377"
