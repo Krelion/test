@@ -3,6 +3,7 @@
 
 - Контейнеры базируются на Debian [Debian official repository](https://index.docker.io/_/debian/)
 - droplets на Ubuntu 16.04
+- ansible 2.2.1.0
 
 ### Создание и запуск droplets
 ansible-do-api/digitalocean.yml
