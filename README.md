@@ -1,4 +1,4 @@
-Через ansible автоматический запуск droplets на DigitalOcean, установка Docker и создание контейнеров с phppgadmin и postgresql.
+Автоматический запуск droplets на DigitalOcean, установка Docker и создание контейнеров с phppgadmin и postgresql.
 ===========
 
 - Контейнеры базируются на Debian [Debian official repository](https://index.docker.io/_/debian/)
