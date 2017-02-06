@@ -1,0 +1,16 @@
+version: '2'
+services:
+  phppgadmin:
+    build: .
+    ports:
+     - "80:80"
+    environment:
+      - APACHE_SERVERNAME=testphppgadmin.com
+      - POSTGRES_HOST=postgresql
+      - POSTGRES_PORT=5432
+  postgresql:
+    image: "orchardup/postgresql"
+    env_file:
+      - pgsql-variables.env
+    expose:
+      - "5432"

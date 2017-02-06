@@ -1,0 +1,34 @@
+# ansible playbook to deploy docker on ubuntu xenial 16.04
+---
+-
+  name: patch tc agent boxes
+  become: true
+  hosts:
+    - mydockerhosts
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+  gather_facts: False
+
+  tasks:
+    - name: add docker apt key
+      apt_key:
+        keyserver: hkp://p80.pool.sks-keyservers.net:80
+        id: 58118E89F3A912897C070ADBF76221572C52609D
+
+    - name: add docker apt repository
+      apt_repository:
+        repo: deb https://apt.dockerproject.org/repo ubuntu-xenial main
+        update_cache: yes
+
+# for docker aufs
+#    - name: allow use of aufs storage driver
+#      shell: apt install linux-image-extra-$(uname -r) linux-image-extra-virtual -y
+
+    - name: install docker
+      apt:
+        name: docker-engine
+        state: latest
+        update_cache: yes
+
+    - name: get docker compose
+      shell: curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose

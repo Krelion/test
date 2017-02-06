@@ -1,0 +1,15 @@
+# ansible playbook to deploy docker on ubuntu xenial 16.04
+---
+-
+  name: patch tc agent boxes
+  become: true
+  hosts:
+    - manager
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+
+  tasks:
+
+# create swarm
+    - name: swarm create
+      shell: docker swarm init --advertise-addr {{ ansible_eth0.ipv4.address }}

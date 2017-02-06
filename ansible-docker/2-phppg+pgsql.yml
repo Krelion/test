@@ -1,0 +1,21 @@
+# ansible playbook to deploy phppgadmin and postgresql
+---
+-
+  name: patch tc agent boxes
+  become: true
+  hosts:
+    - mydockerhosts
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+
+  tasks:
+
+    - name: extract files for docker-compose
+      unarchive:
+        src: ./phppgadmin.tar.gz
+        dest: ~/
+
+    - name: run docker-compose and up
+      command: docker-compose up -d
+      args:
+        chdir: ~/phppgadmin
