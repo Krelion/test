@@ -7,17 +7,17 @@
 ### Создание и запуск droplets
 ansible-do-api/digitalocean.yml
 
+Здесь указываем свой API ключ DigitalOcean
+
     vars:
       do_token: your-do-token
 
-Здесь указываем свой API ключ DigitalOcean
+Указываем имена создаваемых машин, в нашем случае достаточно одной. 
 
     droplets:
     - manager1
     #- worker1
     #- worker2
-
-Указываем имена создаваемых машин, в нашем случае достаточно одной. 
 
 playbook автоматически проверяет наличие ssh ключей и в случае их отсутствия генерирует новые. 
 Используя API DigitalOcean добавляет эти ключи в аккаунт.
@@ -86,3 +86,9 @@ ENV POSTGRES_DEFAULTDB test
 ENV POSTGRES_HOST postgresql
 
 ENV POSTGRES_PORT 5432
+
+### Дополнительные playbooks для массового развертывания swarm ansible-docker/additional/
+
+Для создания ноды с менеджером используется managerswarm.yml
+
+Для подключения нод с воркерами используем workertoswarm.yml
