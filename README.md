@@ -49,7 +49,7 @@ ansible-docker/hosts
 
 Распаковывается архив ansible-docker/phppgadmin.tar.gz с конфигурацией для docker-compose на ноду и выполняются команды по сборке и запуску контейнеров уже средствами docker-compose
 
-### Для PostgreSQL используется image orchardup/postgresql
+### Для PostgreSQL используется image orchardup/postgresql с нужными нам параметрами
 
 Переменные для создания начальных параметров PostgreSQL хранятся в ansible-docker/phppgadmin/pgsql-variables.env
 
